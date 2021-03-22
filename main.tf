@@ -670,7 +670,7 @@ resource "aws_elastic_beanstalk_environment" "default" {
   setting {
     namespace = "aws:ec2:instances"
     name      = "SpotFleetOnDemandAboveBasePercentage"
-    value     = var.enable_spot_instances ? var.spot_fleet_on_demand_above_base_percentage : (var.spot_fleet_on_demand_above_base_percentage == -1 ? (var.environment_type == "LoadBalanced" ? 70 : 0) : var.spot_fleet_on_demand_above_base_percentage)
+    value     = var.spot_fleet_on_demand_above_base_percentage == -1 ? (var.environment_type == "LoadBalanced" ? 70 : 0) : var.spot_fleet_on_demand_above_base_percentage
   }
 
   setting {
