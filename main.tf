@@ -917,6 +917,7 @@ resource "aws_s3_bucket" "elb_logs" {
   acl           = "private"
   force_destroy = var.force_destroy
   policy        = join("", data.aws_iam_policy_document.elb_logs.*.json)
+  tags          = module.label.tags
 }
 
 module "dns_hostname" {
